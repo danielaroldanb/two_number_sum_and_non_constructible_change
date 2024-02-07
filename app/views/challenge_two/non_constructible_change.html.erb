@@ -1,0 +1,24 @@
+<div class="d-flex align-items-center justify-content-center">
+  <h1>
+    Non-Constructible Change
+  <h1>
+</div>
+<div class="alert alert-secondary" role="alert">
+  Given an array of positive integers representing the values of coins in your possession, write a function that returns the minimum amount of change (the minimum sum of money) that you cannot create. The given coins can have any positive integer value and aren’t necessarily unique (i.e., you can have multiple coins of the same value)
+</div>
+<%= form_with url: non_constructible_change_path do |form| %>
+  <div class="mb-3">
+    <%= form.label :coins %>
+    <%= form.text_field :coins, class: "form-control", placeholder: "Enter only positive integers in this format: 1,2,3..." %>
+  </div>
+
+  <div class="mb-3">
+  <% unless @minimum_sum_of_money.nil? %>
+    <%= "The minimum sum of money that cannot be created for coins #{@coins_array} is #{@minimum_sum_of_money}"%>
+  <%end%>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit "Calculate", class: "btn btn-primary" %>
+  </div>
+<% end %>
