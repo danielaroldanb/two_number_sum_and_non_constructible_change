@@ -1,0 +1,26 @@
+<div class="d-flex align-items-center justify-content-center">
+  <h1> Two Number Sum <h1>
+</div>
+<div class="alert alert-secondary" role="alert">
+  Given an array of integers, no number in this array is repeated, and an integer representing the target sum, implement a function that find whether there's a pair of numbers in the array that adds up to the target sum. Return the pair in an array. If such pair does not exist, return an empty array.
+</div>
+<%= form_with url: two_numbers_sum_path do |form| %>
+  <div class="mb-3">
+    <%= form.label :numbers %>
+    <%= form.text_field :numbers, required: true, class: "form-control", placeholder: "Enter only positive integers in this format: 1,2,3..." %>
+  </div>
+  <div class="mb-3">
+    <% if @matches.present?  %>
+      <%= @matches.one? ? "Given #{@numbers_array}, The elements that together allow us to obtain the target of #{@target} are #{@matches.flatten}" : "Given #{@numbers_array}, The elements that together allow us to obtain the target of #{@target} are #{@matches}"%>
+    <% else  %>
+      <%= @matches%>
+    <% end %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :target %>
+    <%= form.text_field :target, required: true, class: "form-control", placeholder: "Enter a positive number. Example: 4" %>
+  </div>
+  <div class="mb-3">
+    <%= form.submit "Calculate", class: "btn btn-primary" %>
+  </div>
+<% end %>
