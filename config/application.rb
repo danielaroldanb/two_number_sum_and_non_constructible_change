@@ -14,6 +14,11 @@ module DanielaRoldan42IChallenge
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
+    unless Rails.env.test?
+      # Solo agrega hosts permitidos si no estamos en el entorno de prueba
+      config.hosts << 'ruby-challenges-dn3z.onrender.com'
+    end
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
